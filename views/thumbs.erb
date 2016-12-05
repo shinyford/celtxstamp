@@ -1,0 +1,30 @@
+<html>
+	<head>
+	  <script type="text/javascript">
+		var stamp_id = '<%= @stamp.id if @stamp %>';
+		var stamp_pages = <%= (@stamp.numpages if @stamp) || 100 %>;
+		var initvalue = '<%= Stamp::INITVALUE %>';
+	  </script>
+		<link rel="stylesheet" href="/style/celtxstamp.css" type="text/css" />
+		<link rel="stylesheet" href="/style/thumbs.css" type="text/css" />
+  	<script type="text/javascript" src="/javascripts/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="/javascripts/thumbs.js"></script>
+	</head>
+	<body><form id="pdf_form" action="/thumbs" enctype="multipart/form-data" method="post">
+			<b>PDF: </b><input id="stamp_pdf" name="stamp[pdf]" size="30" type="file" />
+
+			<input id="stamp_tl" name="stamp[tl]" type="hidden" value="<%= @stamp.tl if @stamp %>" />
+			<input id="stamp_tc" name="stamp[tc]" type="hidden" value="<%= @stamp.tc if @stamp %>" />
+			<input id="stamp_tr" name="stamp[tr]" type="hidden" value="<%= @stamp.tr if @stamp %>" />
+			<input id="stamp_bl" name="stamp[bl]" type="hidden" value="<%= @stamp.bl if @stamp %>" />
+			<input id="stamp_bc" name="stamp[bc]" type="hidden" value="<%= @stamp.bc if @stamp %>" />
+			<input id="stamp_br" name="stamp[br]" type="hidden" value="<%= @stamp.br if @stamp %>" />
+
+			<input id="stamp_start_page" name="stamp[start_page]" type="hidden" value="<%= @stamp.start_page if @stamp %>" />
+			<input id="stamp_timezone" name="stamp[timezone]" type="hidden" value="<%= @stamp.timezone if @stamp %>" />
+
+			<input id="stamp_filename" name="stamp[filename]" type="hidden" value="<%= @stamp.filename if @stamp %>" />
+
+		</form>
+	</body>
+</html>
